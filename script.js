@@ -46,11 +46,14 @@ function setDifficulty(value){
 function showGame(){
   $('homeScreen').classList.add('hidden');
   $('gameScreen').classList.remove('hidden');
+  // Explicitly hide the result overlay so Play Again always reveals the new game.
   $('resultModal').classList.add('hidden');
+  $('resultModal').style.display = 'none';
 }
 
 function showHome(){
   $('resultModal').classList.add('hidden');
+  $('resultModal').style.display = 'none';
   $('gameScreen').classList.add('hidden');
   $('homeScreen').classList.remove('hidden');
   updateHomeStats();
@@ -97,17 +100,14 @@ function renderWord(){
 
 function renderKeyboard(){
   $('keyboard').innerHTML = '';
-
   letters.forEach(letter => {
     const b = document.createElement('button');
     b.className='key';
     b.textContent=letter;
-
     if(guessed.has(letter)){
       b.disabled=true;
       b.classList.add(current.word.includes(letter)?'correct':'wrong');
     }
-
     b.addEventListener('click',()=>guess(letter));
     $('keyboard').appendChild(b);
   });
@@ -115,7 +115,6 @@ function renderKeyboard(){
 
 function guess(letter){
   if(gameOver || guessed.has(letter)) return;
-
   guessed.add(letter);
 
   if(current.word.includes(letter)){
@@ -168,6 +167,7 @@ function finish(won){
   $('score').textContent=score;
   saveStats();
   $('resultModal').classList.remove('hidden');
+  $('resultModal').style.display = 'grid';
 }
 
 function useHint(type){
@@ -192,7 +192,6 @@ function useHint(type){
     if(score<20) return;
     const hidden=current.word.split('').filter(ch=>!guessed.has(ch));
     if(!hidden.length) return;
-
     hints.h3=true;
     score-=20;
     const reveal=hidden[Math.floor(Math.random()*hidden.length)];
