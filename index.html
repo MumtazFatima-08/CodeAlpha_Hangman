@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mystery Word Challenge — a playful 2.5D Hangman game by Mumtaz Fatima." />
+  <title>Mystery Word Challenge • Hangman</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <div class="bubble bubble-1"></div><div class="bubble bubble-2"></div>
+    <div class="bubble bubble-3"></div><div class="bubble bubble-4"></div>
+
+    <header class="hero">
+      <p class="eyebrow">CODEALPHA • PYTHON INTERNSHIP TASK 1</p>
+      <h1>HANGMAN</h1>
+      <p class="subtitle">MYSTERY WORD CHALLENGE</p>
+    </header>
+
+    <section id="homeScreen" class="screen">
+      <button id="playBtn" class="paper-btn primary large">▶ PLAY</button>
+
+      <div class="section-label">DIFFICULTY SELECTION</div>
+      <div class="difficulty-grid">
+        <button class="paper-btn difficulty active" data-difficulty="EASY"><strong>✓ EASY</strong><span>2 Words</span></button>
+        <button class="paper-btn difficulty" data-difficulty="MEDIUM"><strong>MEDIUM</strong><span>2 Words</span></button>
+        <button class="paper-btn difficulty" data-difficulty="HARD"><strong>HARD</strong><span>1 Word</span></button>
+      </div>
+
+      <div class="stats-pill" id="homeStats">Games: 0 • Wins: 0 • Win Rate: 0% • Best Score: 0</div>
+    </section>
+
+    <section id="gameScreen" class="screen hidden">
+      <div class="topbar">
+        <button id="backBtn" class="mini-btn">← MENU</button>
+        <div class="difficulty-badge" id="difficultyBadge">EASY</div>
+        <div class="score-box">SCORE <b id="score">100</b></div>
+      </div>
+
+      <div class="game-card">
+        <div class="game-art">
+          <svg class="gallows" viewBox="0 0 280 250" aria-label="Hangman drawing">
+            <path d="M35 220 H225 M65 220 V25 H185 M65 45 H185 M185 25 V62" />
+            <circle id="head" cx="185" cy="88" r="26" class="hang-part" />
+            <path id="body" d="M185 114 V170" class="hang-part" />
+            <path id="armL" d="M185 128 L150 150" class="hang-part" />
+            <path id="armR" d="M185 128 L220 150" class="hang-part" />
+            <path id="legL" d="M185 170 L153 205" class="hang-part" />
+            <path id="legR" d="M185 170 L217 205" class="hang-part" />
+          </svg>
+          <div class="mistakes"><b id="mistakes">0</b> / 6 MISTAKES</div>
+        </div>
+
+        <div class="play-area">
+          <div class="category" id="category">Category</div>
+          <div class="word" id="word"></div>
+          <div class="fact" id="fact">Need a clue? Tap a boost below!</div>
+
+          <div class="hint-row">
+            <button id="hint1" class="hint-btn free">💡 FREE CLUE</button>
+            <button id="hint2" class="hint-btn">🔎 FIRST LETTER <span>−10</span></button>
+            <button id="hint3" class="hint-btn">✨ REVEAL LETTER <span>−20</span></button>
+          </div>
+
+          <div id="keyboard" class="keyboard"></div>
+        </div>
+      </div>
+    </section>
+
+    <div id="resultModal" class="modal hidden" role="dialog" aria-modal="true">
+      <div class="modal-card">
+        <div id="resultEmoji" class="result-emoji">🎉</div>
+        <h2 id="resultTitle">YOU WIN!</h2>
+        <p id="resultText"></p>
+        <div class="result-actions">
+          <button id="againBtn" class="paper-btn primary">▶ PLAY AGAIN</button>
+          <button id="menuBtn" class="paper-btn secondary">⌂ MENU</button>
+        </div>
+      </div>
+    </div>
+
+    <footer>Standard 6-Mistake Rule • Built with HTML, CSS & JavaScript</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
