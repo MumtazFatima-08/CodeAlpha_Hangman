@@ -11,33 +11,27 @@
   <main class="app-shell">
     <div class="bubble bubble-1"></div><div class="bubble bubble-2"></div>
     <div class="bubble bubble-3"></div><div class="bubble bubble-4"></div>
-
     <header class="hero">
       <p class="eyebrow">CODEALPHA • PYTHON INTERNSHIP TASK 1</p>
       <h1>HANGMAN</h1>
       <p class="subtitle">MYSTERY WORD CHALLENGE</p>
     </header>
-
     <section id="homeScreen" class="screen">
       <button id="playBtn" class="paper-btn primary large">▶ PLAY</button>
-
       <div class="section-label">DIFFICULTY SELECTION</div>
       <div class="difficulty-grid">
         <button class="paper-btn difficulty active" data-difficulty="EASY"><strong>✓ EASY</strong><span>2 Words</span></button>
         <button class="paper-btn difficulty" data-difficulty="MEDIUM"><strong>MEDIUM</strong><span>2 Words</span></button>
         <button class="paper-btn difficulty" data-difficulty="HARD"><strong>HARD</strong><span>1 Word</span></button>
       </div>
-
       <div class="stats-pill" id="homeStats">Games: 0 • Wins: 0 • Win Rate: 0% • Best Score: 0</div>
     </section>
-
     <section id="gameScreen" class="screen hidden">
       <div class="topbar">
         <button id="backBtn" class="mini-btn">← MENU</button>
         <div class="difficulty-badge" id="difficultyBadge">EASY</div>
         <div class="score-box">SCORE <b id="score">100</b></div>
       </div>
-
       <div class="game-card">
         <div class="game-art">
           <svg class="gallows" viewBox="0 0 280 250" aria-label="Hangman drawing">
@@ -51,23 +45,19 @@
           </svg>
           <div class="mistakes"><b id="mistakes">0</b> / 6 MISTAKES</div>
         </div>
-
         <div class="play-area">
           <div class="category" id="category">Category</div>
           <div class="word" id="word"></div>
           <div class="fact" id="fact">Need a clue? Tap a boost below!</div>
-
           <div class="hint-row">
             <button id="hint1" class="hint-btn free">💡 FREE CLUE</button>
             <button id="hint2" class="hint-btn">🔎 FIRST LETTER <span>−10</span></button>
             <button id="hint3" class="hint-btn">✨ REVEAL LETTER <span>−20</span></button>
           </div>
-
           <div id="keyboard" class="keyboard"></div>
         </div>
       </div>
     </section>
-
     <div id="resultModal" class="modal hidden" role="dialog" aria-modal="true">
       <div class="modal-card">
         <div id="resultEmoji" class="result-emoji">🎉</div>
@@ -79,7 +69,6 @@
         </div>
       </div>
     </div>
-
     <footer>Standard 6-Mistake Rule • Built with HTML, CSS & JavaScript</footer>
   </main>
   <script src="script.js"></script>
