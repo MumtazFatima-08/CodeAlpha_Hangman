@@ -1,0 +1,1 @@
+# CodeAlpha Task 1\n\nKeep exactly five predefined words and six maximum wrong guesses. Tkinter is used only for the desktop UI.\n
