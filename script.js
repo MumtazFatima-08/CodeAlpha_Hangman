@@ -38,9 +38,6 @@ function setDifficulty(value){
   document.querySelectorAll('.difficulty').forEach(btn => {
     const active = btn.dataset.difficulty === value;
     btn.classList.toggle('active', active);
-
-    // Keep every button's own difficulty name instead of replacing
-    // all labels with the currently selected difficulty.
     const label = btn.dataset.difficulty;
     btn.querySelector('strong').textContent = active ? `✓ ${label}` : label;
   });
@@ -49,6 +46,7 @@ function setDifficulty(value){
 function showGame(){
   $('homeScreen').classList.add('hidden');
   $('gameScreen').classList.remove('hidden');
+  $('resultModal').classList.add('hidden');
 }
 
 function showHome(){
